@@ -26,6 +26,9 @@ class EventAdmin(admin.ModelAdmin):
         }),
     ]
 
+    # enable a date-based navigation hierarchy in the admin interface based on the 'date' field.
+    date_hierarchy = "date"
+
 
 admin.site.register(EventCategory)
 admin.site.register(Event, EventAdmin)
