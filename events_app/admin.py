@@ -14,6 +14,18 @@ class EventAdmin(admin.ModelAdmin):
     # Add filters to the admin list view, allowing filtering by category.
     list_filter = ["category"]
 
+    fieldsets = [       
+        # section named "Allgemein" (General) containing title, category, and date fields.
+        ("Allgemein", {
+            "fields": ["title", "category", "date"],
+        }),
+        # section named "Organisation" containing location and capacity fields, collapsed by default.
+        ("Organisation", {
+            "fields": ["location", "capacity"],
+            "classes": ("collapse",)  # makes this section collapsible in the admin form.
+        }),
+    ]
+
 
 admin.site.register(EventCategory)
 admin.site.register(Event, EventAdmin)
