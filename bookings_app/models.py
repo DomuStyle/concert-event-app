@@ -1,12 +1,14 @@
 from django.db import models
+from django import forms
 
 # Create your models here.
 from events_app.models import Event
 
 class Participant(models.Model):
-    first_name = models.CharField(max_length=100)
-    last_name = models.CharField(max_length=100)
-    email = models.EmailField(unique=True)
+    first_name = models.CharField(max_length=100, help_text="Vorname")
+    last_name = models.CharField(max_length=100, help_text="Nachname")
+
+    email = models.EmailField(unique=True, help_text="E-Mail-Adresse")
     # slugField to store a URL-friendly version of the full name, optional and defaults to empty.
     full_name = models.SlugField(max_length=200, blank=True, default="")
 
