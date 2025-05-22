@@ -5,7 +5,7 @@ from .models import Participant, Booking
 
 class BookingAdmin(admin.ModelAdmin):
     # make the booking_date field read-only in the add/edit forms, as it’s auto-set on creation.
-    readonly_fields = ('booking_date')
+    readonly_fields = ['booking_date']
 
 admin.site.register(Participant)
-admin.site.register(Booking)
+admin.site.register(Booking, BookingAdmin)
